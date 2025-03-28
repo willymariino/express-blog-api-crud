@@ -30,3 +30,5 @@ function update(req, res) {
 function destroy(req, res) {
     res.send("Eliminazione del post con ID" + req.params.id)
 }
+
+module.exports = { index, show, store, update, destroy }
