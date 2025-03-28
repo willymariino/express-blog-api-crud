@@ -20,4 +20,13 @@ function store(req, res) {
 }
 
 // update: sostituisce un post esistente
-// usa req.params.id
+// usa req.params.id perchè devo sapere quale post modificare
+function update(req, res) {
+    res.send("modifica integrale del post con ID" + req.params.id)
+}
+
+// destroy: elimina un post esistente
+// usa req.params.id perchè devo sapere quale post eliminare
+function destroy(req, res) {
+    res.send("Eliminazione del post con ID" + req.params.id)
+}
