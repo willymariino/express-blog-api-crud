@@ -1,6 +1,6 @@
 // index restituisce l'elenco completo dei post identificati dall'Id
 // non usa req.params perchè restituisce tutti i post, non un post specifico
-function show(req, res) {
+function index(req, res) {
     res.send("lista dei post")
 }
 
