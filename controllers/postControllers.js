@@ -1,3 +1,6 @@
+// vado a prendere la cartella con l'array di oggetti
+const posts = require("../data/posts2")
+
 // index restituisce l'elenco completo dei post identificati dall'Id
 // non usa req.params perchè restituisce tutti i post, non un post specifico
 function index(req, res) {
