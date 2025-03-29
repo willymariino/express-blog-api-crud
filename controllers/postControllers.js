@@ -62,7 +62,7 @@ function destroy(req, res) {
         return res.json({
             status: 404,
             error: "not found",
-            message: "pizza non tovata"
+            message: "post non tovata"
 
 
         })
