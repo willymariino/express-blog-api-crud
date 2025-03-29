@@ -62,21 +62,25 @@ function destroy(req, res) {
         return res.json({
             status: 404,
             error: "not found",
-            message: "post non tovata"
+            message: "post non tovato"
 
 
         })
 
-        // rimuoviamo il post dall'array di oggetti
-
-        posts.splice(posts.indexOf(post), 1)
-
-
-
     }
+
+    // rimuoviamo il post dall'array di oggetti
+
+    posts.splice(posts.indexOf(post), 1)
+
+    res.sendStatus(204)
 
 
 
 }
+
+
+
+
 
 module.exports = { index, show, store, update, destroy }
