@@ -55,7 +55,7 @@ function destroy(req, res) {
 
     // controllo
 
-    if (!pizza) {
+    if (!post) {
 
         res.status(404)
 
