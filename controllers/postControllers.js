@@ -11,7 +11,21 @@ function index(req, res) {
 // show: restituisce un sigolo post identificato dall'id
 // usa req.params.id perchè voglio un post specifico
 function show(req, res) {
-    res.send("dettaglio del post con ID:" + req.params.id)
+    // recuperiamo l'id dall'url e trasormiamolo in numero
+    const id = parseInt(req.params.id)
+
+    // cerchiamo la pizza tramite id
+    const post = posts.find(post => post.id === id)
+
+    // facciamo il controllo
+    if (!post) {
+        return res.json({
+            error: "not found",
+            message: "post non trovato"
+        })
+    }
+
+    res.json(post)
 }
 
 
