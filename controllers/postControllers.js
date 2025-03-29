@@ -11,10 +11,11 @@ function index(req, res) {
 // show: restituisce un sigolo post identificato dall'id
 // usa req.params.id perchè voglio un post specifico
 function show(req, res) {
+
     // recuperiamo l'id dall'url e trasormiamolo in numero
     const id = parseInt(req.params.id)
 
-    // cerchiamo la pizza tramite id
+    // cerchiamo il post tramite id
     const post = posts.find(post => post.id === id)
 
     // facciamo il controllo
@@ -45,7 +46,37 @@ function update(req, res) {
 // destroy: elimina un post esistente
 // usa req.params.id perchè devo sapere quale post eliminare
 function destroy(req, res) {
-    res.send("Eliminazione del post con ID" + req.params.id)
+
+    // recuperiamo l'id dall'url e trasormiamolo in numero
+    const id = parseInt(req.params.id)
+
+    // cerchiamo il post tramie id
+    const post = posts.find(post => post.id === id)
+
+    // controllo
+
+    if (!pizza) {
+
+        res.status(404)
+
+        return res.json({
+            status: 404,
+            error: "not found",
+            message: "pizza non tovata"
+
+
+        })
+
+        // rimuoviamo il post dall'array di oggetti
+
+        posts.splice(posts.indexOf(post), 1)
+
+
+
+    }
+
+
+
 }
 
 module.exports = { index, show, store, update, destroy }
