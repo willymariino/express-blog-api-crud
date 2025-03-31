@@ -43,7 +43,21 @@ function show(req, res) {
 // non usa req.params.id perchè stiamo creando un nuovo post, non modificando uno esistente
 
 function store(req, res) {
-    res.send("creazione di un nuovo post")
+
+    const newId = posts[posts.length - 1].id + 1 // prendo l'ultimo elemento dell'array, leggo il suo id, e aggiungo + 1, per dire che il nuovo oggetto, avrà l'id dell'ultimo oggetto +1
+    const newPost = {
+        id: newId,
+        name: req.body.name,
+        image: req.body.image,
+        ingredients: req.body.ingredients
+
+
+    }
+    // pusho il nuovo post nell'array
+    posts.push(newPost)
+
+    // faccio un console log di verifica
+    console.log(posts)
 }
 
 // update: sostituisce un post esistente
