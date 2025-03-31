@@ -45,6 +45,8 @@ function show(req, res) {
 function store(req, res) {
 
     const newId = posts[posts.length - 1].id + 1 // prendo l'ultimo elemento dell'array, leggo il suo id, e aggiungo + 1, per dire che il nuovo oggetto, avrà l'id dell'ultimo oggetto +1
+
+    // creo il nuovo oggetto
     const newPost = {
         id: newId,
         name: req.body.name,
@@ -58,6 +60,10 @@ function store(req, res) {
 
     // faccio un console log di verifica
     console.log(posts)
+
+    // restituiamo lo status corretto con il nuovo oggetto appena creato
+    res.status(201)
+    res.json(newPost)
 }
 
 // update: sostituisce un post esistente
@@ -99,6 +105,8 @@ function destroy(req, res) {
     posts.splice(posts.indexOf(post), 1)
 
     res.sendStatus(204)
+
+
 
 
 
