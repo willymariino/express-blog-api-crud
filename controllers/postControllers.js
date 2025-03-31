@@ -49,9 +49,9 @@ function store(req, res) {
     // creo il nuovo oggetto
     const newPost = {
         id: newId,
-        name: req.body.name,
-        image: req.body.image,
-        ingredients: req.body.ingredients
+        title: req.body.title,
+        content: req.body.content,
+        tags: req.body.tags
 
 
     }
