@@ -15,16 +15,25 @@ function show(req, res) {
     // recuperiamo l'id dall'url e trasormiamolo in numero
     const id = parseInt(req.params.id)
 
+
+
+
     // cerchiamo il post tramite id
+    // post è l'oggetto che andiamo ad iterare all'interno dell'array e mi chiedo se quell'id è lo stesso che che sto andando a ricercare, id è una chiave di posts
     const post = posts.find(post => post.id === id)
 
     // facciamo il controllo
     if (!post) {
-        return res.json({
+        // res.status(404)
+        return res.status(404).json({
             error: "not found",
             message: "post non trovato"
+
         })
+
+
     }
+
 
     res.json(post)
 }
@@ -48,6 +57,8 @@ function update(req, res) {
 function destroy(req, res) {
 
     // recuperiamo l'id dall'url e trasormiamolo in numero
+    // req e res sono oggetti, mentre id è la chiave dell'oggetto
+    // qualunque valore inviato dall'utente viene considerato una stringa, quindi
     const id = parseInt(req.params.id)
 
     // cerchiamo il post tramie id
