@@ -69,7 +69,35 @@ function store(req, res) {
 // update: sostituisce un post esistente
 // usa req.params.id perchè devo sapere quale post modificare
 function update(req, res) {
-    res.send("modifica integrale del post con ID" + req.params.id)
+
+    // recuperiamo l'id dall'url e lo trasformiamo in numero
+    const id = parseInt(req.params.id)
+
+    // cerchiamo il post da modificare tramite id
+    const post = posts.find(post => post.id === id)
+
+    // se il post non viene trovato restituisco lo status elemento non trovato
+    if (!post) {
+        res.status(404)
+
+        return res.json({
+            error: "not found",
+            message: "post non trovato"
+        })
+    }
+
+    // aggiorniamo i post
+    post.title = req.body.title
+    post.content = req.body.content
+    post.tags = req.body.tags
+
+    // controlliamo l'array in console
+    console.log(posts)
+
+    // restituiamo il post appena aggiornato
+    res.json(post)
+
+    // aggiorniamo il post
 }
 
 // destroy: elimina un post esistente
@@ -97,6 +125,8 @@ function destroy(req, res) {
 
 
         })
+
+
 
     }
 
