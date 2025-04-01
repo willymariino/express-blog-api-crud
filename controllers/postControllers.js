@@ -51,6 +51,7 @@ function store(req, res) {
         id: newId,
         title: req.body.title,
         content: req.body.content,
+        image: req.body.image,
         tags: req.body.tags
 
 
@@ -122,9 +123,9 @@ function modify(req, res) {
     }
 
     // aggiorniamo i post
-    post.title = req.body.title
-    post.content = req.body.content
-    post.tags = req.body.tags
+    if (req.body.title !== undefined) post.title = req.body.title
+    if (req.body.content !== undefined) post.content = req.body.content
+    if (req.body.tags !== undefined) post.tags = req.body.tags
 
     // controlliamo la modifica all'array in console
     console.log(posts)
@@ -179,4 +180,4 @@ function destroy(req, res) {
 
 
 
-module.exports = { index, show, store, update, destroy }
+module.exports = { index, show, store, update, modify, destroy }
