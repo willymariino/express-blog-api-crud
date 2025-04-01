@@ -1,6 +1,6 @@
 const express = require("express") // vado ad importare express
 const app = express() // invoco express
-const errorsHandler = require("./middleawares/errorshandler")
+const errorsHandler = require("./middlewares/errorsHandler")
 
 const port = 3000 // indico quale porta voglio utilizzare
 
