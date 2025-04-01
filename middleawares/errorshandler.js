@@ -5,3 +5,5 @@ function errorsHandler(err, req, res, next) {
 
     })                      // non invoco next() perchè non voglio che il programma continui, ma segnali l'errore invece
 }
+
+module.export = errorsHandler
