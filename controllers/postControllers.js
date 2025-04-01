@@ -100,6 +100,39 @@ function update(req, res) {
     // aggiorniamo il post
 }
 
+function modify(req, res) {
+
+
+    // recuperiamo l'id e lo trasformiamo in numero
+    const id = parseInt(req.params.id)
+
+    // cerchiamo il post tramite id
+    const post = posts.find(post => post.id === id)
+
+    // se il post non viene trovato restituisco lo staus 404
+
+    if (!post) {
+        res.status(404)
+
+        return res.json({
+            error: "not found",
+            message: "post non trovato"
+
+        })
+    }
+
+    // aggiorniamo i post
+    post.title = req.body.title
+    post.content = req.body.content
+    post.tags = req.body.tags
+
+    // controlliamo la modifica all'array in console
+    console.log(posts)
+
+    res.json(post)
+
+}
+
 // destroy: elimina un post esistente
 // usa req.params.id perchè devo sapere quale post eliminare
 function destroy(req, res) {
