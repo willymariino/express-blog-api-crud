@@ -1,6 +1,7 @@
 const express = require("express") // vado ad importare express
 const app = express() // invoco express
 const errorsHandler = require("./middlewares/errorsHandler")
+const notFound = require("./middlewares/notFound")
 
 const port = 3000 // indico quale porta voglio utilizzare
 
@@ -13,6 +14,7 @@ app.use(express.json()) // effettuo il body parsing per decodificare il body, in
 app.use("/posts", postRouter)
 
 app.use(errorsHandler)
+app.use(notFound)
 
 app.listen(port, () => {
     console.log("server attivo sulla porta:" + " " + port)
